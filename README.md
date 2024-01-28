@@ -1,5 +1,7 @@
 # Installing Kitsune Mask (aka Magisk Delta) on Bluestacks 5
 
+![pic](https://github.com/ZeroOneZero/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/0d6d0f83-3710-428a-b054-dfe3f73e9b79)
+
 > [!IMPORTANT]
 > Tested on BlueStacks App Player ```5.20.10.1003``` (Android 11)
 
