@@ -51,11 +51,18 @@ Master Instances:
 ```C:\ProgramData\BlueStacks_nxt\Engine\Rvc64```
 
 - Open the following two files and change the data as shown:
-	- ```C:\ProgramData\BlueStacks_nxt\Engine\Rvc64\Android.bstk.in```
-		- For ```"fastboot.vdi"```, change the type from ```"Readonly"``` to ```"Normal"```.
 
-	- ```C:\ProgramData\BlueStacks_nxt\Engine\Rvc64\Rvc64.bstk```
-		- For ```"Root.vhd"```, change the type from ```"Readonly"``` to ```"Normal"```.
+- ```C:\ProgramData\BlueStacks_nxt\Engine\Rvc64\Android.bstk.in```
+
+	- For ```"fastboot.vdi"```, change the type from ```"Readonly"``` to ```"Normal"```.
+ 
+	- For ```"Root.vhd"```, change the type from ```"Readonly"``` to ```"Normal"```.
+
+- ```C:\ProgramData\BlueStacks_nxt\Engine\Rvc64\Rvc64.bstk```
+
+	- For ```"fastboot.vdi"```, change the type from ```"Readonly"``` to ```"Normal"```.
+
+	- For ```"Root.vhd"```, change the type from ```"Readonly"``` to ```"Normal"```.
 
 - Save all the changes.
 
