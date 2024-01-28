@@ -8,7 +8,7 @@
 > [!NOTE]
 > Download the offical installer from [BlueStacks website](https://www.bluestacks.com/).
 
-> If you want the offline image of Android 11 bundled with their installer, run this command:
+> If you want the offline image of Android 11 bundled with the installer, run this command in Windows Terminal or PowerShell; otherwise, simply run the installer:
 
 ```.\"BlueStacksInstaller*.exe" --defaultImageName Rvc64 --imageToLaunch Rvc64```
 
