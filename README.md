@@ -5,6 +5,13 @@
 > [!IMPORTANT]
 > Tested on BlueStacks App Player ```5.20.10.1003``` (Android 11)
 
+> [!NOTE]
+> Download the offical installer from [BlueStacks website](https://www.bluestacks.com/).
+
+> If you want the offline image of Android 11 bundled with their installer, run this command:
+
+```"BlueStacksFullInstaller_*_amd64_native.exe" --defaultImageName Rvc64 --imageToLaunch Rvc64```
+
 > [!WARNING]
 > In BlueStacks, Magisk installation fails because the root partition is mounted as read-only. However, modifying values in certain files allows Magisk to install itself to the /system partition without external tools.
 
