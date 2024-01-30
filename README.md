@@ -1,6 +1,11 @@
-# Installing Kitsune Mask (aka Magisk Delta) on Bluestacks 5
+# Rooting Bluestacks 5+ with Kitsune Mask (aka Magisk Delta)
 
-![pic](https://github.com/ZeroOneZero/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/0d6d0f83-3710-428a-b054-dfe3f73e9b79)
+> [!NOTE]
+> A *PC*, *Magisk*, and *Notepad* are all that are required to *root* the latest and greatest version of Bluestacks; ***no external tools are required***.
+
+> These instructions and more can be found on my [YouTube](https://www.youtube.com/@RobThePCGuy) channel, or simply click the picture below to go straight to it.
+
+[![YouTube](https://github.com/ZeroOneZero/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/0d6d0f83-3710-428a-b054-dfe3f73e9b79)](https://youtu.be/kgsiBRWCzmA)
 
 > [!IMPORTANT]
 > Tested on BlueStacks App Player ```5.20.10.1003``` (Android 11)
@@ -80,5 +85,9 @@ Master Instances:
 - After installation, close the emulator.
 
 - Undo all the edits in **bluestacks.conf** (change the 1's back to 0's).
+
+---
+
+If this guide helped, please leave me a star!
 
 ---
