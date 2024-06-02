@@ -6,7 +6,7 @@
 
 > These instructions and more can be found on my [YouTube](https://www.youtube.com/@RobThePCGuy) channel, or simply click the picture below to go straight to it.
 
-[![YouTube](https://github.com/ZeroOneZero/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/a9ad2b20-9faa-4c73-850e-cf03ad4d4a71)](https://youtu.be/kgsiBRWCzmA)
+[![YouTube](https://github.com/ZeroOneZero/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/a9ad2b20-9faa-4c73-850e-cf03ad4d4a71)](https://youtu.be/eRXeasi6GQQ)
 
 > [!IMPORTANT]
 > Tested on BlueStacks App Player `5.21`
