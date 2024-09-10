@@ -9,7 +9,7 @@
 [![YouTube](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/a9ad2b20-9faa-4c73-850e-cf03ad4d4a71)](https://youtu.be/eRXeasi6GQQ)
 
 > [!IMPORTANT]
-> Tested on BlueStacks App Player `5.21`
+> Tested on BlueStacks App Player `5.21.550.1031`
 
 > [!WARNING]
 Magisk is a systemless root tool that can be installed on most Android devices, but it cannot be installed in BlueStacks because the partitions are set to read-only by default. To change the permissions, you must edit a text file on your computer. No external scripts or tools are needed. After you have completed the editing, BlueStacks will have read/write permissions, and you will be able to install Magisk on the system partition.
