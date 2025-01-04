@@ -5,7 +5,7 @@
 > Only a *PC*, *Magisk*, and *Notepad* are required to *root* the latest version of BlueStacks; ***no external tools are needed***.
 > These instructions and more can be found on my [YouTube](https://www.youtube.com/@RobThePCGuy) channel, or simply click the picture below to go straight to it.
 >
-> To bring in the new year, I have been working on a Python application that simplifies the process of the initial config editing. The new repo is located at [BlueStacks-Root-GUI] (https://github.com/RobThePCGuy/BlueStacks-Root-GUI).
+> To bring in the new year, I have been working on a Python application that simplifies the process of the initial config editing. The new repo is located at [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI).
 
 [![YouTube](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/assets/10876982/a9ad2b20-9faa-4c73-850e-cf03ad4d4a71)](https://youtu.be/eRXeasi6GQQ)
 
