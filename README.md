@@ -40,7 +40,6 @@ I can't stress this enough: For this to work, you must remove all traces of Blue
 Master Instances:
   - Rvc64 = Android 11
   - Pie64 = Android 9
-  - Nougat64 = Android Nougat
 ```
 
 ### Step 1: Modify BlueStacks Configuration
