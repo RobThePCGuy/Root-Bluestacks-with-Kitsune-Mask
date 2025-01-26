@@ -1,6 +1,12 @@
 # Rooting Bluestacks 5+ with Kitsune Mask (aka Magisk Delta)
 ## 2025 Edition
 
+> [!IMPORTANT]
+> JAN 26 - An issue by [@DaRandomCube](https://github.com/DaRandomCube) brought to my attention that Kitsune Mask has not been updated in so long that newer modules may not work as intended. The best option for Bluestacks users of this repo is to use a fork of the original: [KitsuneMagisk](https://github.com/1q23lyc45/KitsuneMagisk).
+> I’m leaving the links in the rest of my tutorials to the original repo for now, but it will be replaced soon.
+>
+> TL;DR: If you’re having issues loading modules using Kitsune Mask, try the fork that I linked above. Let me know if you have any issues.
+
 > [!NOTE]
 > Only a *PC*, *Magisk*, and *Notepad* are required to *root* the latest version of BlueStacks; ***no external tools are needed***.
 > These instructions and more can be found on my [YouTube](https://www.youtube.com/@RobThePCGuy) channel, or simply click the picture below to go straight to it.
