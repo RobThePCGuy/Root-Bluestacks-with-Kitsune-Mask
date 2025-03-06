@@ -97,7 +97,7 @@ Master Instances:
    - **Note:** Cloned instances do not make a copy of the **`Android.bstk.in`** file; it will always be found within the master instance directory.
    - Open the `Android.bstk.in` file with Notepad (or your text editor).
    - **Change Partition Permissions:**
-     For the `location="fastboot.vdi"` and `location="Root.vhd"` entries, change the attribute from `type="Readonly"` to `type="Normal"`.
+   - For the `location="fastboot.vdi"` and `location="Root.vhd"` entries, change the attribute from `type="Readonly"` to `type="Normal"`.
    - **Example:**
      ```diff
      -       location="fastboot.vdi" format="VDI" type="Readonly" />
@@ -111,12 +111,12 @@ Master Instances:
 3. **Modify `Rvc64.bstk`:**
    - **Note:** If you are rooting the master instance **`Rvc64`**, then this file will be located in the master instance folder (`C:\ProgramData\BlueStacks_nxt\Engine\Rvc64`).
    - **For Cloned Instances:**
-     If you have cloned (or copied) the master instance, the folder and file might be named something like `Rvc64_1`. In this case, replace the instance name in the instructions accordingly.
+   - If you have cloned (or copied) the master instance, the folder and file might be named something like `Rvc64_1`. In this case, replace the instance name in the instructions accordingly.
    - **Note on Clones:**
-     Clones will not have the master instance file **`Android.bstk.in`** inside.
+   - Clones will not have the master instance file **`Android.bstk.in`** inside.
    - Open `Rvc64.bstk` with Notepad.
    - **Change Partition Permissions:**
-     For the `location="fastboot.vdi"` and `location="Root.vhd"` entries, change `type="Readonly"` to `type="Normal"`.
+   - For the `location="fastboot.vdi"` and `location="Root.vhd"` entries, change `type="Readonly"` to `type="Normal"`.
    - **Example:**
      ```diff
      -       location="fastboot.vdi" format="VDI" type="Readonly" />
