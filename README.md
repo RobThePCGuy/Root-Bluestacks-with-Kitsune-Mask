@@ -26,7 +26,7 @@
 > [!IMPORTANT]
 > **Tested BlueStacks Version:**
 >
-> This guide is verified to work on **BlueStacks App Player `5.22.0.1102`**.  While it may work on other versions, this is the tested and recommended version for this tutorial.
+> This guide is verified to work on **BlueStacks App Player `5.22.0.1102`**. Tested on Android 9, 11, and 13. This tutorial assumes you are using the master instance named Rvc64 aka Android 11.
 
 > [!WARNING]
 > **Understanding Magisk and BlueStacks Partitions:**
@@ -68,6 +68,7 @@ Here's a quick overview of the rooting process.  See the "Detailed Steps" sectio
 
 ```
 Master Instances:
+  - Tiramisu64 = Android 13 (beta)
   - Rvc64 = Android 11
   - Pie64 = Android 9
 ```
@@ -76,30 +77,44 @@ Master Instances:
 
 ### Step 1: Modify BlueStacks Configuration
 
-1.  **Locate `bluestacks.conf`:** Navigate to `C:\ProgramData\BlueStacks_nxt\bluestacks.conf`.
+1.  **Locate `bluestacks.conf`:** Navigate to `C:\ProgramData\BlueStacks_nxt`.
 2.  **Open with Notepad:** Open the `bluestacks.conf` file using your preferred text editor.
 3.  **Modify Configuration Values:**
     *   Change `bst.feature.rooting="0"` to `bst.feature.rooting="1"`
     *   Change `bst.instance.Rvc64.enable_root_access="0"` to `bst.instance.Rvc64.enable_root_access="1"`
-        *   **Note:** If you are using a different instance (e.g., Pie64), modify the corresponding `bst.instance.[InstanceName].enable_root_access` line.
+    *   **Note:** If you are using a different instance (e.g., Pie64, or Tiramisu64), modify the corresponding `bst.instance.[InstanceName].enable_root_access` line.
 4.  **Save Changes:** Save the modified `bluestacks.conf` file.
 
 ### Step 2: Modify Instance Files
-
-1.  **Navigate to Instance Folders:** Go to `C:\ProgramData\BlueStacks_nxt\Engine\Rvc64\` (or your instance folder, e.g., `Pie64`).
-2.  **Modify `Android.bstk.in` and `Rvc64.bstk`:** Open both `Android.bstk.in` and `Rvc64.bstk` files with Notepad (or your text editor).
-3.  **Change Partition Permissions:** In both files, locate the sections for `"fastboot.vdi"` and `"Root.vhd"`.
-    *   Change the line containing `"type":"Readonly"` to `"type":"Normal"` for both `"fastboot.vdi"` and `"Root.vhd"`.
+1.  **Navigate to the Master Instance Folder:** Go to `C:\ProgramData\BlueStacks_nxt\Engine\Rvc64` (or your instance folder, e.g., `Pie64` or `Tiramisu64`).
+2.  **Modify `Android.bstk.in`:** Open the `Android.bstk.in` with Notepad (or your text editor).
+3.  **Change Partition Permissions:** For the 'location="fastboot.vdi"` and `location="Root.vhd"` do the following:
+    *   Change the `type="Readonly"` to `"type="Normal"` for each location mentioned above.
     *   **Example (within the file):**
         ```diff
-        -       "prop": {
-        -               "type": "Readonly"
-        -       },
-        +       "prop": {
-        +               "type": "Normal"
-        +       },
+        -       location="fastboot.vdi" format="VDI" type="Readonly" />
+        -       location="Root.vhd" format="VHD" type="Readonly"/>
+        
+        +       location="fastboot.vdi" format="VDI" type="Normal" />
+        +       location="Root.vhd" format="VHD" type="Normal"/>
         ```
-4.  **Save Changes:** Save both `Android.bstk.in` and `Rvc64.bstk` files.
+4.  **Save Changes:** Save the `Android.bstk.in` file.
+5.  **Modify `Rvc64.bstk`:** If you have no clones then this file will be located in the master instance folder `C:\ProgramData\BlueStacks_nxt\Engine\Rvc64` (or your instance folder, e.g., `Pie64` or `Tiramisu64`).
+    *   If you have cloned or 'copied' the master instance then the folder and file you are looking for will be something like `Rvc64_1` so just replace the instructions with that instance name.
+    *   Clones do not store the [InstanceName].bstk inside of the master instance folder, it is instead saved withing the cloned folder in the Engine directory.
+    *   Similarily the clones do name make copies of the masters `Android.bstk.in`, it will always be located within the master instance folder.
+6.  **Modify `Rvc64.bstk`:** Open `Rvc64.bstk` with Notepad (or your text editor).
+7.  **Change Partition Permissions:** For the 'location="fastboot.vdi"` and `location="Root.vhd"` do the following:
+    *   Change the `type="Readonly"` to `"type="Normal"` for each location mentioned above.
+    *   **Example (within the file):**
+        ```diff
+        -       location="fastboot.vdi" format="VDI" type="Readonly" />
+        -       location="Root.vhd" format="VHD" type="Readonly"/>
+        
+        +       location="fastboot.vdi" format="VDI" type="Normal" />
+        +       location="Root.vhd" format="VHD" type="Normal"/>
+        ```
+8.  **Save Changes:** Save the `Rvc64.bstk` file.
 
 ### Step 3: Install Kitsune Magisk
 
@@ -118,8 +133,8 @@ Master Instances:
 6.  **Revert `bluestacks.conf` Edits:**
     *   Re-open `C:\ProgramData\BlueStacks_nxt\bluestacks.conf` with Notepad.
     *   **Undo the changes from Step 1:**
-        *   Change `bst.feature.rooting="1"` back to `bst.feature.rooting="0"`
-        *   Change `bst.instance.Rvc64.enable_root_access="1"` back to `bst.instance.Rvc64.enable_root_access="0"`
+        *   `bst.feature.rooting=` will automatically have changed back to `bst.feature.rooting="0"`, this is normal.
+        *   Change `bst.instance.Rvc64.enable_root_access="1"` back to `bst.instance.Rvc64.enable_root_access="0"` (or your instance name, e.g., `Pie64` or `Tiramisu64`).
     *   Save the modified `bluestacks.conf` file.
 
 </details>
