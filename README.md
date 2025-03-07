@@ -13,15 +13,11 @@
 >
 > Root BlueStacks 5+ using just your *PC*, *Kitsune Mask*, and *Notepad*. **No external tools needed!** For a complete walkthrough, watch the video tutorial above or visit my [YouTube Channel](https://www.youtube.com/@RobThePCGuy).
 
-> [!IMPORTANT]
-> **Kitsune Mask Fork Recommended!**
->
-> **January 26, 2025 Update:** Due to inactivity in the original Kitsune Mask project, users may encounter issues with newer modules. Thanks to [@DaRandomCube](https://github.com/DaRandomCube)'s observation, we now recommend using the actively maintained fork: [**KitsuneMagisk by 1q23lyc45**](https://github.com/1q23lyc45/KitsuneMagisk).
-
 > [!NOTE]
-> **BlueStacks Root GUI - New Project!**
+> **BlueStacks Root GUI**
+> My Python based portable application allows you to toggle root access and enable read/write (R/W) permissions for your BlueStacks instances. It automatically detects both master and cloned instances, eliminating the need to manually edit the configuration files I describe below.
 >
-> *Simplify* steps **1** and **2** below by using my Python-based *'Root'-GUI*, which allows you to toggle read/write and root permissions via a simple interface – no file editing required! Check it out at [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) and please leave feedback if you encounter any issues.
+> Check it out at **[BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI)** and please leave feedback if you encounter any issues.
 
 > [!IMPORTANT]
 > **Tested BlueStacks Version:**
@@ -58,46 +54,46 @@ Here's a quick overview of the rooting process. See the "Detailed Steps" section
 <details>
 <summary><h2>🛠️ Detailed Steps</h2></summary>
 
-**Clean BlueStacks Installation is Key!**
-For optimal results, **[uninstall all previous BlueStacks installations](https://support.bluestacks.com/hc/en-us/articles/360057724751-How-to-uninstall-BlueStacks-5-BlueStacks-X-and-BlueStacks-Services-completely-from-your-PC)** and perform a fresh install of the latest version. This greatly reduces the chance of encountering issues during the rooting process.
-
 **Instance Naming Convention:**
 This tutorial uses the following naming conventions for master instances:
 
 ```
 Master Instances:
-  - Tiramisu64 	= Android 13 (beta)
-  - Rvc64 		= Android 11
-  - Pie64   	= Android 9
+  - Tiramisu64  = Android 13 (beta)
+  - Rvc64       = Android 11
+  - Pie64       = Android 9
 ```
 
 *Adapt the instance names according to your BlueStacks setup.*
 
-### Step 1: Modify BlueStacks Configuration
+### Step 1: Prepare:
+1. **Fully Uninstall BlueStacks:**
+   - Use the official tool to completely **[uninstall all previous BlueStacks installations](https://support.bluestacks.com/hc/en-us/articles/360057724751-How-to-uninstall-BlueStacks-5-BlueStacks-X-and-BlueStacks-Services-completely-from-your-PC)**.
+   - Download and install the latest BlueStacks version from the official website: **[BlueStacks](https://www.bluestacks.com/)**.
 
-1. **Locate `bluestacks.conf`:**
-   Navigate to `C:\ProgramData\BlueStacks_nxt`.
+### Step 2: Modify BlueStacks Config:
+1. **Locate the Main Configuration File:**
+   Navigate to **`C:\ProgramData\BlueStacks_nxt`**.
 
-2. **Open with Notepad:**
-   Open the `bluestacks.conf` file using your preferred text editor.
+2. **Edit with Notepad:**
+   Open **`bluestacks.conf`** using your preferred text editor.
 
 3. **Modify Configuration Values:**
-   - Change `bst.feature.rooting="0"` to `bst.feature.rooting="1"`.
-   - Change `bst.instance.Rvc64.enable_root_access="0"` to `bst.instance.Rvc64.enable_root_access="1"`.
-   - **Note:** If you are using a different instance (e.g., Pie64 or Tiramisu64), modify the [InstanceName] for all the lines similar to this: `bst.instance.[InstanceName].enable_root_access`.
+   - Change **`bst.feature.rooting="0"`** to **`bst.feature.rooting="1"`**.
+   - Change **`bst.instance.Rvc64.enable_root_access="0"`** to **`bst.instance.Rvc64.enable_root_access="1"`**.
+> **Note:** If you are using a different instance (e.g., Pie64 or Tiramisu64), modify the [InstanceName] for all the lines similar to this: `bst.instance.[InstanceName].enable_root_access`.
 
 4. **Save Changes:**
-   Save the modified `bluestacks.conf` file.
+   Save the modified **`bluestacks.conf`** file.
 
-### Step 2: Modify Instance Files
+### Step 3: Enable R/W:
 
 1. **Navigate to the Master Instance Folder:**
-   Go to `C:\ProgramData\BlueStacks_nxt\Engine\Rvc64` (or your instance folder, e.g., `Pie64` or `Tiramisu64`).
-2. **Modify `Android.bstk.in`:**
-   - **Note:** Cloned instances do not make a copy of the **`Android.bstk.in`** file; it will always be found within the master instance directory.
-   - Open the `Android.bstk.in` file with Notepad (or your text editor).
-   - **Change Partition Permissions:**
-   - For the `location="fastboot.vdi"` and `location="Root.vhd"` entries, change the attribute from `type="Readonly"` to `type="Normal"`.
+   Go to **`C:\ProgramData\BlueStacks_nxt\Engine\Rvc64`** (or your instance folder, e.g., `Pie64` or `Tiramisu64`).
+> **Note:** Cloned instances do not make a copy of the **`Android.bstk.in`** file; it will always be found within the master instance directory.
+2. Open **`Android.bstk.in`** with Notepad (or your text editor).
+3. **Change Partition Permissions:**
+   - For the **`location="fastboot.vdi"`** and **`location="Root.vhd"`** entries, change the attribute from **`type="Readonly"`** to **`type="Normal"`**.
    - **Example:**
      ```diff
      -       location="fastboot.vdi" format="VDI" type="Readonly" />
@@ -108,15 +104,11 @@ Master Instances:
      ```
    - Save the file.
 
-3. **Modify `Rvc64.bstk`:**
-   - **Note:** If you are rooting the master instance **`Rvc64`**, then this file will be located in the master instance folder (`C:\ProgramData\BlueStacks_nxt\Engine\Rvc64`).
-   - **For Cloned Instances:**
-   - If you have cloned (or copied) the master instance, the folder and file might be named something like `Rvc64_1`. In this case, replace the instance name in the instructions accordingly.
-   - **Note on Clones:**
-   - Clones will not have the master instance file **`Android.bstk.in`** inside.
-   - Open `Rvc64.bstk` with Notepad.
-   - **Change Partition Permissions:**
-   - For the `location="fastboot.vdi"` and `location="Root.vhd"` entries, change `type="Readonly"` to `type="Normal"`.
+> **Note:** If you are rooting the master instance **`Rvc64`**, then this file will be located in the master instance folder **(`C:\ProgramData\BlueStacks_nxt\Engine\Rvc64`)**.
+> **Note:** If you have cloned (or copied) the master instance, the folder and file might be named something like `Rvc64_1`. In this case, replace the instance name in the instructions accordingly.
+4. Open **`Rvc64.bstk`** with Notepad (or your text editor).
+5. **Change Partition Permissions:**
+   - For the **`location="fastboot.vdi"`** and **`location="Root.vhd"`** entries, change the attribute from **`type="Readonly"`** to **`type="Normal"`**.
    - **Example:**
      ```diff
      -       location="fastboot.vdi" format="VDI" type="Readonly" />
@@ -127,34 +119,25 @@ Master Instances:
      ```
    - Save the file.
 
-### Step 3: Install Kitsune Mask
+### Step 4: Install Kitsune Mask
 
-1. **Launch BlueStacks Instance:**
-   Start the BlueStacks instance you wish to root (e.g., Rvc64).
+1. Download the **[Kitsune Mask](https://github.com/1q23lyc45/KitsuneMagisk/releases)** apk file.
+2. Launch the instance from the Multi-Instance Manager and install the apk.
+3. You should see the Kitsune Mask application; click on it to run.
+4. Root using **Kitsune Mask**:
+   - Once open, look to the top under the Kitsune Mask section and select the **Install** option.
+   - At the top right, tap the **Next** link to proceed.
+   - Select the **Direct Install to /system** option.
 
-2. **Install Kitsune Mask APK:**
-   Install the downloaded Kitsune Mask APK within your BlueStacks instance.
+> **Note:** If the **Direct Install to /system** option is missing, do not select **Direct Install**.
+>
+> Completely close and reopen the Kitsune Mask app. This usually resolves the issue.
 
-3. **Open Kitsune Mask App:**
-   Launch the Kitsune Mask application.
-
-4. **Install Kitsune Mask (Direct Install to System Partition):**
-   - Select the "Install" option at the top.
-   - Tap the Next link to proceed.
-   - **Crucially, select "Direct Install into system partition"** from the available installation options. **Do not choose just "Direct Install".**
-
-   > **If the "Direct Install into system partition" option is missing:**
-   > Completely close and reopen the Kitsune Mask app. This usually resolves the issue.
-
-5. **Complete Installation and Close Emulator:**
-   Allow Kitsune Mask to finish installing. Once done, **completely close the BlueStacks emulator.**
-
-6. **Revert `bluestacks.conf` Edits:**
-   - Re-open `C:\ProgramData\BlueStacks_nxt\bluestacks.conf` with Notepad.
-   - **Undo the changes from Step 1:**
-   - The `bst.feature.rooting` value should revert automatically to `"0"`.
-   - Change `bst.instance.Rvc64.enable_root_access="1"` back to `bst.instance.Rvc64.enable_root_access="0"` (or the corresponding line for your instance, e.g., Pie64 or Tiramisu64).
-   - **Important:** Do not revert the edits we did in the *bstk files. Only in the `bluestacks.conf`.
+5. Click Next and watch the install log for any errors.
+6. Allow Kitsune Mask to finish installing, then close the BlueStacks emulator.
+7. Open up the Main Configuration File: **`bluestacks.conf`**.
+   - Change the value for **`bst.instance.Rvc64.enable_root_access="1"` back to `bst.instance.Rvc64.enable_root_access="0"` (or the corresponding line for your instance, e.g., Pie64 or Tiramisu64).
+> **Note:** The file will have automatically changed the value for **`bst.feature.rooting=`** back to **`"0"`**, this is normal and an important part of the process
    - Save the file.
 
 </details>
@@ -164,7 +147,10 @@ Master Instances:
 
 - **Kitsune Mask Installation Issues:**
   - **Problem:** Kitsune Mask fails to install or encounters errors.
-  - **Solution:** Ensure you performed a **fresh install** of BlueStacks as recommended. If issues persist, completely uninstall BlueStacks and reinstall while strictly following the steps in my [YouTube guide](https://youtu.be/eRXeasi6GQQ).
+  - **Solution:**
+	- **Fully Uninstall BlueStacks:**
+	  - Use the official tool to completely **[uninstall all previous BlueStacks installations](https://support.bluestacks.com/hc/en-us/articles/360057724751-How-to-uninstall-BlueStacks-5-BlueStacks-X-and-BlueStacks-Services-completely-from-your-PC)**.
+	  - Download and install the latest BlueStacks version from the official website: **[BlueStacks](https://www.bluestacks.com/)**.
 
 - **Kitsune Mask App Crashing or Not Opening:**
   - **Problem:** The Kitsune Mask app crashes or fails to launch.
@@ -180,7 +166,7 @@ Master Instances:
 1. **Administrative Access:** Verify that you are logged in with an account that has administrator privileges.
 2. **Correct Directory:** Double-check that you are navigating to `C:\ProgramData\BlueStacks_nxt\`. Also, ensure that hidden folders are visible in your file explorer settings.
 
-**Q: This all seems terribly difficult, isn't there a better way?**
+**Q: This all seems terribly difficult; isn't there a better way?**
 **A:** Yes, there is!
 - Try using [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI), which lets you change the configuration values with simple checkboxes. After that, simply follow along with the Kitsune Mask installation.
 
