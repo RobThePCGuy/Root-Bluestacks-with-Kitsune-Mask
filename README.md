@@ -2,7 +2,6 @@
 
 [![GitHub Repo Stars](https://img.shields.io/github/stars/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask?style=social)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)
 [![YouTube Video Views](https://img.shields.io/youtube/views/eRXeasi6GQQ?style=social)](https://youtu.be/eRXeasi6GQQ)
-[![Last Updated](https://img.shields.io/github/last-commit/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/commits/main)
 
 **Root your BlueStacks 5+ or MSI App Player emulator effortlessly using Kitsune Mask!** This guide provides a streamlined, text-based approach to granting root access to your instances, allowing you to run applications that require root privileges. No external tools are necessary – just your PC, Notepad, and Kitsune Mask!
 
