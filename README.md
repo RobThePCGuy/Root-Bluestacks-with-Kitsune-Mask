@@ -4,7 +4,7 @@
 [![YouTube Video Views](https://img.shields.io/youtube/views/eRXeasi6GQQ?style=social)](https://youtu.be/eRXeasi6GQQ)
 
 > [!IMPORTANT]
-> **Getting "Android system doesn't meet security" popup?** Check out [Troubleshooting](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/edit/master/README.md#troubleshooting).
+> **Getting "Android system doesn't meet security" popup?** Check out [Troubleshooting](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/README.md#troubleshooting).
 
 **Root your BlueStacks 5+ or MSI App Player emulator effortlessly using Kitsune Mask.** This guide provides a streamlined, text-based approach to granting root access to your instances, allowing you to run applications that require root privileges. No external tools are necessary, just your PC, Notepad, and Kitsune Mask.
 
