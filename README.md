@@ -1,7 +1,7 @@
 # Root BlueStacks 5+ Rooting Guide (2025 Edition) with Kitsune Mask
-
 [![GitHub Repo Stars](https://img.shields.io/github/stars/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask?style=social)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)
 [![YouTube Video Views](https://img.shields.io/youtube/views/eRXeasi6GQQ?style=social)](https://youtu.be/eRXeasi6GQQ)
+[![Last Updated](https://img.shields.io/github/last-commit/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/commits/main)
 
 > [!IMPORTANT]
 > **Getting "Android system doesn't meet security" popup?** Check out [Troubleshooting](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask#getting-android-system-doesnt-meet-security-popup).
