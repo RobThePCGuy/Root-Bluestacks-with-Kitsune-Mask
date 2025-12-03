@@ -176,12 +176,7 @@ When you enable root access OR read/write permissions in BlueStacks 5.22+:
    - Look for version **5.21.x.xxxx** (January 2025)
    - Install normally
 
-4. **Disable Auto-Updates**
-   - After installation, edit `C:\ProgramData\BlueStacks_nxt\bluestacks.conf`
-   - Find or add: `bst.auto_update="0"`
-   - This prevents upgrading back to 5.22
-
-5. **Apply This Rooting Guide**
+4. **Apply This Rooting Guide**
    - Follow the normal steps in this README
    - Everything should work as documented!
 
