@@ -162,7 +162,7 @@ When you enable root access OR read/write permissions in BlueStacks 5.22+:
 #### How to Fix It
 
 <details>
-<summary><b>Downgrade to BlueStacks 5.21</b></summary>
+<summary><b>Downgrade to BlueStacks 5.22.130.1019</b></summary>
 
 1. **Backup Your Data**
    - Export any important app data/saves from BlueStacks
@@ -171,9 +171,8 @@ When you enable root access OR read/write permissions in BlueStacks 5.22+:
    - Download [BSTCleaner](https://support.bluestacks.com/hc/en-us/articles/360057724751) from official BlueStacks support
    - Run it to completely remove all BlueStacks files
 
-3. **Install BlueStacks 5.21**
-   - Download from [Uptodown Archive](https://bluestacks-app-player.en.uptodown.com/windows/versions)
-   - Look for version **5.21.x.xxxx** (January 2025)
+3. **Install BlueStacks 5.22.130.1019**
+   - Download from [5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)
    - Install normally
 
 4. **Apply This Rooting Guide**
@@ -189,11 +188,14 @@ Use [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) to
 | BlueStacks Version | Root Working? | Notes |
 |-------------------|---------------|-------|
 | 5.20.x | Yes | Fully compatible |
-| 5.21.x | Yes | Last confirmed working version |
-| 5.22.0.1102+ | No | Play Integrity enforcement (Oct 2025) |
+| 5.22.130.1019 | Yes | Last confirmed working version |
+| 5.22.130.1020+ | No | Play Integrity enforcement (Oct 2025) |
+
+@AndnixSH has informed the issue tracker that:
+"After testing various versions, I found out that 5.22.130.1019 is the last working version without disk integrity check.
+[5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)"
 
 **Tracking:** See [Issue #11](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11) for community updates and potential workarounds.
-
 ---
 
 ### Kitsune Mask Installation Issues
