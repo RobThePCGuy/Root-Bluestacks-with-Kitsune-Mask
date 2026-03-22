@@ -4,7 +4,7 @@
 [![Last Updated](https://img.shields.io/github/last-commit/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/commits/main)
 
 > [!IMPORTANT]
-> **Getting "Android system doesn't meet security" popup?** Check out [Troubleshooting](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask#getting-android-system-doesnt-meet-security-popup).
+> **Getting "Android system doesn't meet security" popup?** Expand the **Troubleshooting** section below for the fix (downgrade to BlueStacks `5.22.130.1019`).
 
 **Root your BlueStacks 5+ or MSI App Player emulator effortlessly using Kitsune Mask.** This guide provides a streamlined, text-based approach to granting root access to your instances, allowing you to run applications that require root privileges. No external tools are necessary, just your PC, Notepad, and Kitsune Mask.
 
@@ -13,19 +13,19 @@
 > [!NOTE]
 > **BlueStacks Root GUI (Recommended Method)**
 >
-> My Python-based portable application allows you to toggle root access and enable read/write (R/W) permissions for your BlueStacks and MSI App Player instances with simple button clicks. It automatically detects all instances and has been **recently updated to fix critical bugs and improve reliability.**
+> My Python-based portable application allows you to toggle root access and enable read/write (R/W) permissions for your BlueStacks and MSI App Player instances with simple button clicks. It automatically detects all instances and is **actively maintained.**
 >
 > For an easier experience, check it out at **[BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI)**.
 
 > [!IMPORTANT]
 > **Tested Versions:**
 >
-> This guide is verified to work on **BlueStacks App Player `5.22.0.1102`** and **MSI App Player `5.10.0.1085`**, supporting Android 9, 11, and 13. This tutorial assumes you are using a master instance like **Rvc64** (Android 11).
+> This guide is verified to work on **BlueStacks App Player `5.22.130.1019`** (last version compatible with rooting), **`5.22.0.1102`**, and **MSI App Player `5.10.0.1085`**, supporting Android 9, 11, and 13. Versions **`5.22.130.1020`+** are **not compatible** due to Play Integrity enforcement. This tutorial assumes you are using a master instance like **Rvc64** (Android 11).
 
 > [!WARNING]
 > **Understanding Kitsune Mask and BlueStacks Partitions:**
 >
-> Kitsune Mask is a systemless root tool. However, BlueStacks partitions are initially read-only, which prevents a direct installation. This guide uses a simple configuration file edit (via Notepad) to temporarily enable read/write permissions, allowing Kitsune Mask to be installed on the system partition.
+> Kitsune Mask is normally a systemless root tool, but emulators like BlueStacks lack a traditional boot image, so it must be installed directly to the `/system` partition. BlueStacks partitions are initially read-only, which prevents this. This guide uses a simple configuration file edit (via Notepad) to temporarily enable read/write permissions, allowing the installation.
 
 ## Prerequisites
 
@@ -43,10 +43,10 @@ Upon successful completion of this guide, your BlueStacks or MSI App Player inst
 
 Here's a quick overview of the rooting process. See the "Detailed Steps" section below for a comprehensive walkthrough:
 
-- [x] **Step 1: Prepare:** Cleanly install BlueStacks or MSI App Player.
-- [x] **Step 2: Modify Configuration:** Edit `bluestacks.conf` to enable root access features.
-- [x] **Step 3: Enable R/W:** Adjust settings in instance files to allow read/write access to system partitions.
-- [x] **Step 4: Install Kitsune Mask:** Install Kitsune Mask directly to the `/system` partition and revert configuration changes.
+1. **Step 1: Prepare:** Cleanly install BlueStacks or MSI App Player.
+2. **Step 2: Modify Configuration:** Edit `bluestacks.conf` to enable root access features.
+3. **Step 3: Enable R/W:** Adjust settings in instance files to allow read/write access to system partitions.
+4. **Step 4: Install Kitsune Mask:** Install Kitsune Mask directly to the `/system` partition and revert configuration changes.
 
 ---
 
@@ -71,8 +71,9 @@ Master Instances:
 1. **Fully Uninstall Previous Versions:**
    - Use the official tool to completely **[uninstall all previous BlueStacks installations](https://support.bluestacks.com/hc/en-us/articles/360057724751-How-to-uninstall-BlueStacks-5-BlueStacks-X-and-BlueStacks-Services-completely-from-your-PC)**.
 
-2. **Install the Latest Version:**
-   - Download from the official website: **[BlueStacks](https://www.bluestacks.com/)** or **[MSI App Player](https://www.msi.com/Landing/appplayer)**.
+2. **Install a Compatible Version:**
+   - Download **[BlueStacks 5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)** (last version compatible with rooting) or **[MSI App Player](https://www.msi.com/Landing/appplayer)**.
+   - **Do not install the latest BlueStacks version** — versions `5.22.130.1020`+ block rooting due to Play Integrity enforcement. See [Troubleshooting](#getting-android-system-doesnt-meet-security-popup) for details.
 
 ### Step 2: Modify BlueStacks Config
 
@@ -195,7 +196,8 @@ Use [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) to
 "After testing various versions, I found out that 5.22.130.1019 is the last working version without disk integrity check.
 [5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)"
 
-**Tracking:** See [Issue #11](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11) for community updates and potential workarounds.
+**Background:** See [Issue #11](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11) for discussion and community findings.
+
 ---
 
 ### Kitsune Mask Installation Issues
@@ -212,6 +214,10 @@ Use [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) to
 
 <details>
 <summary><h2>FAQ - Frequently Asked Questions</h2></summary>
+
+**Q: Which version of BlueStacks should I install?**
+
+**A:** Install **[BlueStacks 5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)** — it is the last version compatible with rooting. Versions `5.22.130.1020` and newer block rooting due to Play Integrity enforcement.
 
 **Q: I can't find the `C:\ProgramData` folder!**
 
