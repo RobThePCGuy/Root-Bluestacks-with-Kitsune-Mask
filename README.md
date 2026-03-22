@@ -32,7 +32,7 @@
 Before you begin, ensure you have the following:
 
 - **Administrator Rights:** You need administrative access to modify system files in `C:\ProgramData`.
-- **Kitsune Mask APK:** Download the latest APK from the [KitsuneMagisk repository](https://github.com/1q23lyc45/KitsuneMagisk/releases).
+- **Kitsune Mask APK:** Download the APK from the [KitsuneMagisk archive](https://github.com/Scratch2033Alt/KitsuneMagisk) (v26.4 stable — the original repo is no longer available).
 - **Fresh BlueStacks/MSI Installation (Recommended):** For the most consistent results, start with a clean installation.
 
 ## Expected Outcome
@@ -120,7 +120,7 @@ Master Instances:
 
 ### Step 4: Install Kitsune Mask
 
-1. Download the **[Kitsune Mask](https://github.com/1q23lyc45/KitsuneMagisk/releases)** APK file.
+1. Download the **[Kitsune Mask](https://github.com/Scratch2033Alt/KitsuneMagisk)** APK file.
 
 2. Launch the target instance from the BlueStacks/MSI Multi-Instance Manager and install the APK.
 
