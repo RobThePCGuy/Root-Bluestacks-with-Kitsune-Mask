@@ -231,6 +231,21 @@ Use [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) to
 
 **A:** Yes. In the GUI, simply toggle Root off. Manually, change the values in `bluestacks.conf` back to `"0"` and uninstall the Kitsune Mask app from the instance.
 
+**Q: Is SELinux enabled or disabled after rooting with this method?**
+
+**A:** SELinux is **Disabled** by default on the BlueStacks 5 guest, and this rooting method does **not** change it — the steps here only edit `bluestacks.conf` and flip disk read-only flags; they touch no SELinux policy.
+
+To check inside the instance (use a terminal app in the emulator, or `adb shell`):
+
+```
+getenforce            # expect: Disabled
+getprop ro.boot.selinux   # also informative
+```
+
+This was verified on BlueStacks `5.22.x` with Android 9, 11, and 13 instances (all reported `Disabled`), but it can vary by BlueStacks build and Android instance version, so confirm on your own setup.
+
+If you specifically need SELinux **Enforcing** (for example, a game or anti-cheat that refuses to run under permissive/disabled SELinux), this method won't provide it — that would require an extra `magiskpolicy` step beyond this guide.
+
 </details>
 
 ---
