@@ -7,7 +7,7 @@
 Root your **BlueStacks 5+** or **MSI App Player** emulator so apps that require root work. This guide covers both the easy way (a one-click tool) and the fully manual way (Notepad only).
 
 > [!IMPORTANT]
-> **The "latest version can't be rooted" advice is out of date.** BlueStacks 5.22 added a disk-integrity check that shuts modified instances down with *"Android system doesn't meet security requirements."* You no longer have to downgrade to get around it — **[BlueStacks Root GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) patches that check out and roots the current build.** Confirmed working on **5.22.232.1002 / Android 13**. The manual downgrade method below still works and needs no external tool, but it is no longer the *only* option.
+> **The "latest version can't be rooted" advice is out of date.** BlueStacks 5.22 added a disk-integrity check that shuts modified instances down with *"Android system doesn't meet security requirements."* You no longer have to downgrade to get around it — **[BlueStacks Root GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) patches that check out and roots the current build.** Confirmed working on **5.22.232.1002 / Android 13** — the current latest official BlueStacks build as of July 2026. The manual downgrade method below still works and needs no external tool, but it is no longer the *only* option.
 
 ---
 
