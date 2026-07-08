@@ -1,255 +1,269 @@
 # Root BlueStacks 5+ Rooting Guide (2026 Edition) with Kitsune Mask
+
 [![GitHub Repo Stars](https://img.shields.io/github/stars/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask?style=social)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)
 [![YouTube Video Views](https://img.shields.io/youtube/views/eRXeasi6GQQ?style=social)](https://youtu.be/eRXeasi6GQQ)
-[![Last Updated](https://img.shields.io/github/last-commit/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/commits/main)
+[![Last Updated](https://img.shields.io/github/last-commit/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/commits/master)
+
+Root your **BlueStacks 5+** or **MSI App Player** emulator so apps that require root work. This guide covers both the easy way (a one-click tool) and the fully manual way (Notepad only).
 
 > [!IMPORTANT]
-> **Getting "Android system doesn't meet security" popup?** Expand the **Troubleshooting** section below for the fix (downgrade to BlueStacks `5.22.130.1019`).
-
-**Root your BlueStacks 5+ or MSI App Player emulator effortlessly using Kitsune Mask.** This guide provides a streamlined, text-based approach to granting root access to your instances, allowing you to run applications that require root privileges. No external tools are necessary, just your PC, Notepad, and Kitsune Mask.
-
-[![Watch the Tutorial on YouTube](https://github.com/user-attachments/assets/d73e49bf-68fb-4b51-99eb-2b442d1be7cc)](https://youtu.be/eRXeasi6GQQ)
-
-> [!NOTE]
-> **BlueStacks Root GUI (Recommended Method)**
->
-> My Python-based portable application allows you to toggle root access and enable read/write (R/W) permissions for your BlueStacks and MSI App Player instances with simple button clicks. It automatically detects all instances and is **actively maintained.**
->
-> For an easier experience, check it out at **[BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI)**.
-
-> [!IMPORTANT]
-> **Tested Versions:**
->
-> This guide is verified to work on **BlueStacks App Player `5.22.130.1019`** (last version compatible with rooting), **`5.22.0.1102`**, and **MSI App Player `5.10.0.1085`**, supporting Android 9, 11, and 13. Versions **`5.22.130.1020`+** are **not compatible** due to Play Integrity enforcement. This tutorial assumes you are using a master instance like **Rvc64** (Android 11).
-
-> [!WARNING]
-> **Understanding Kitsune Mask and BlueStacks Partitions:**
->
-> Kitsune Mask is normally a systemless root tool, but emulators like BlueStacks lack a traditional boot image, so it must be installed directly to the `/system` partition. BlueStacks partitions are initially read-only, which prevents this. This guide uses a simple configuration file edit (via Notepad) to temporarily enable read/write permissions, allowing the installation.
-
-## Prerequisites
-
-Before you begin, ensure you have the following:
-
-- **Administrator Rights:** You need administrative access to modify system files in `C:\ProgramData`.
-- **Kitsune Mask APK:** Download the APK from the [KitsuneMagisk archive](https://github.com/Scratch2033Alt/KitsuneMagisk) (v26.4 stable — the original repo is no longer available).
-- **Fresh BlueStacks/MSI Installation (Recommended):** For the most consistent results, start with a clean installation.
-
-## Expected Outcome
-
-Upon successful completion of this guide, your BlueStacks or MSI App Player instance will be fully rooted with Kitsune Mask.
-
-## Summary of Steps
-
-Here's a quick overview of the rooting process. See the "Detailed Steps" section below for a comprehensive walkthrough:
-
-1. **Step 1: Prepare:** Cleanly install BlueStacks or MSI App Player.
-2. **Step 2: Modify Configuration:** Edit `bluestacks.conf` to enable root access features.
-3. **Step 3: Enable R/W:** Adjust settings in instance files to allow read/write access to system partitions.
-4. **Step 4: Install Kitsune Mask:** Install Kitsune Mask directly to the `/system` partition and revert configuration changes.
+> **The "latest version can't be rooted" advice is out of date.** BlueStacks 5.22 added a disk-integrity check that shuts modified instances down with *"Android system doesn't meet security requirements."* You no longer have to downgrade to get around it — **[BlueStacks Root GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) patches that check out and roots the current build.** Confirmed working on **5.22.232.1002 / Android 13** — the current latest official BlueStacks build as of July 2026. The manual downgrade method below still works and needs no external tool, but it is no longer the *only* option.
 
 ---
 
+## Pick Your Path
+
+| You want… | Use | Needs the app? | BlueStacks version |
+|---|---|---|---|
+| **The easiest route, on any current version** | [Method A: BlueStacks Root GUI](#method-a-bluestacks-root-gui-recommended) | Yes (free, portable, open-source) | Any, including the latest 5.22.x |
+| **No external tools, Notepad only** | [Method B: Manual downgrade](#method-b-manual-notepad-only-no-app) | No | **5.22.130.1019** (last build without the integrity check) |
+| **Magisk-managed root: modules, Zygisk, hiding** | [Magisk Modules & Hiding](#magisk-modules--hiding-advanced) | Either, then extra steps | Any |
+
+> [!WARNING]
+> **Whichever path you pick, read [Stop Auto-Updates](#stop-auto-updates-do-this) first.** A background BlueStacks updater will quietly upgrade your install and undo everything — this is the single most common reason people's root "randomly stops working."
+
+---
+
+## Method A: BlueStacks Root GUI (Recommended)
+
+A free, portable, open-source app that toggles root and read/write with buttons and works on the **latest** BlueStacks — no downgrade, no Notepad.
+
+1. Download the latest `.exe` from **[BlueStacks-Root-GUI Releases](https://github.com/RobThePCGuy/BlueStacks-Root-GUI/releases)**.
+2. Right-click it → **Run as administrator**.
+3. Follow its README for the two-click flow (Patch Engine → Toggle Root). It auto-detects your instances and shows whether the engine is already patched.
+
+That's the whole thing for app-level root. For Magisk modules/hiding on top, see [Magisk Modules & Hiding](#magisk-modules--hiding-advanced).
+
+**Full app docs:** [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI).
+
+---
+
+## Method B: Manual (Notepad only, no app)
+
+This roots by editing two config files and installing Kitsune Mask into `/system` — no external tools, just your PC, Notepad, and the Kitsune Mask APK.
+
+> [!IMPORTANT]
+> **The manual method requires BlueStacks `5.22.130.1019` or older.** Per [@AndnixSH](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11), **5.22.130.1019 is the last build without the disk-integrity check**, so a modified `/system` boots normally. On `5.22.130.1020`+ the check refuses to boot a modified system — those builds *can* still be rooted, but only by patching the check out first, which is what the [app](#method-a-bluestacks-root-gui-recommended) does for you (or the [advanced hand-patch](#advanced-rooting-the-latest-by-hand-no-app)).
+
+> [!NOTE]
+> **Why install into `/system`?** Kitsune Mask (a Magisk Delta fork) is normally a *systemless* root tool that lives in the boot ramdisk. Emulators like BlueStacks have no traditional boot image, so it must be installed directly to the read-only `/system` partition. The Notepad edits below temporarily make that partition writable so the install can happen.
+
+### Prerequisites
+
+- **Administrator rights** — you'll edit files under `C:\ProgramData`.
+- **Kitsune Mask APK** — download from the [KitsuneMagisk archive](https://github.com/Scratch2033Alt/KitsuneMagisk) (**v26.4 stable** is the known-good build; the original repo is gone).
+- **BlueStacks 5.22.130.1019** (or older) or MSI App Player — a fresh install gives the most consistent results.
+
+### Instance naming
+
+This guide uses master-instance names; adapt to yours:
+
+```
+Tiramisu64 = Android 13    Rvc64 = Android 11    Pie64 = Android 9
+```
+
 <details>
-<summary><h2>Detailed Steps</h2></summary>
+<summary><h3>Detailed Steps</h3></summary>
 
-**Instance Naming Convention:**
+#### Step 1 — Prepare
 
-This tutorial uses the following naming conventions for master instances:
+1. **Uninstall any existing BlueStacks** with the official **[BlueStacks cleaner](https://support.bluestacks.com/hc/en-us/articles/360057724751-How-to-uninstall-BlueStacks-5-BlueStacks-X-and-BlueStacks-Services-completely-from-your-PC)**.
+2. **Install [BlueStacks 5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)** (or MSI App Player). Immediately do [Stop Auto-Updates](#stop-auto-updates-do-this) so it can't upgrade itself out from under you.
 
-```
-Master Instances:
-  - Tiramisu64  = Android 13 (beta)
-  - Rvc64       = Android 11
-  - Pie64       = Android 9
-```
+#### Step 2 — Enable root in `bluestacks.conf`
 
-*Adapt the instance names according to your setup.*
+1. Open **`C:\ProgramData\BlueStacks_nxt\bluestacks.conf`** (MSI: `BlueStacks_msi5`) in Notepad **as administrator**.
+2. Set these two lines (add them if missing), replacing `Rvc64` with your instance:
+   - `bst.feature.rooting="1"`
+   - `bst.instance.Rvc64.enable_root_access="1"`
+3. Save.
 
-### Step 1: Prepare
+#### Step 3 — Enable R/W on the instance disks
 
-1. **Fully Uninstall Previous Versions:**
-   - Use the official tool to completely **[uninstall all previous BlueStacks installations](https://support.bluestacks.com/hc/en-us/articles/360057724751-How-to-uninstall-BlueStacks-5-BlueStacks-X-and-BlueStacks-Services-completely-from-your-PC)**.
+1. Go to **`C:\ProgramData\BlueStacks_nxt\Engine\Rvc64`**.
+2. In **`Android.bstk.in`** *and* the instance's **`Rvc64.bstk`**, change `fastboot.vdi` and `Root.vhd` from `type="Readonly"` to `type="Normal"`:
+   ```diff
+   -   <HardDisk ... location="fastboot.vdi" format="VDI" type="Readonly" />
+   -   <HardDisk ... location="Root.vhd"     format="VHD" type="Readonly"/>
+   +   <HardDisk ... location="fastboot.vdi" format="VDI" type="Normal" />
+   +   <HardDisk ... location="Root.vhd"     format="VHD" type="Normal"/>
+   ```
+3. Save both files.
 
-2. **Install a Compatible Version:**
-   - Download **[BlueStacks 5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)** (last version compatible with rooting) or **[MSI App Player](https://www.msi.com/Landing/appplayer)**.
-   - **Do not install the latest BlueStacks version** — versions `5.22.130.1020`+ block rooting due to Play Integrity enforcement. See [Troubleshooting](#getting-android-system-doesnt-meet-security-popup) for details.
+#### Step 4 — Install Kitsune Mask to `/system`
 
-### Step 2: Modify BlueStacks Config
+1. Launch the instance from the Multi-Instance Manager and install the Kitsune Mask APK (drag-and-drop the APK onto the window).
+2. Open Kitsune Mask → **Install** → **Next** → **Direct Install to /system**. *(If that option is missing, fully close and reopen the app inside the emulator.)*
+3. Let it finish, then **close BlueStacks completely.**
 
-1. **Locate the Main Configuration File:**
-   - For **BlueStacks 5**, navigate to **`C:\ProgramData\BlueStacks_nxt`**.
-   - For **MSI App Player**, navigate to **`C:\ProgramData\BlueStacks_msi5`**.
+#### Step 5 — Revert the root flags (this is required)
 
-2. **Edit with Notepad:**
-   - Open **`bluestacks.conf`** using a text editor with administrator rights.
+1. Reopen **`bluestacks.conf`** and set **both** back to `0`:
+   - `bst.instance.Rvc64.enable_root_access="0"`
+   - `bst.feature.rooting="0"`
+2. **Leave the R/W (`type="Normal"`) changes from Step 3 as-is.**
+3. Save. Launch the instance — Kitsune Mask is installed and root works.
 
-3. **Modify Configuration Values:**
-   - Find and change the following two lines. If they don't exist, add them.
-   - Change **`bst.feature.rooting="0"`** to **`bst.feature.rooting="1"`**.
-   - Change **`bst.instance.Rvc64.enable_root_access="0"`** to **`bst.instance.Rvc64.enable_root_access="1"`**.
-
-   > **Note:** Replace `Rvc64` with your target instance name (e.g., `Pie64`, `Tiramisu64`, or a custom name like `Rvc64_1`).
-
-4. **Save Changes:**
-   - Save the modified **`bluestacks.conf`** file.
-
-### Step 3: Enable R/W
-
-1. **Navigate to the Instance Folder:**
-   - For **BlueStacks 5**: **`C:\ProgramData\BlueStacks_nxt\Engine\Rvc64`**
-   - For **MSI App Player**: **`C:\ProgramData\BlueStacks_msi5\Engine\Rvc64`**
-
-   > **Note:** Replace `Rvc64` with your target instance folder name. Cloned instances may have names like `Rvc64_1`.
-
-2. **Modify the `.bstk.in` file:**
-   - Open **`Android.bstk.in`** with a text editor. This file is always in the master instance folder.
-   - For the **`location="fastboot.vdi"`** and **`location="Root.vhd"`** entries, change the attribute from **`type="Readonly"`** to **`type="Normal"`**.
-   - **Example:**
-     ```diff
-     -         <HardDisk uuid="{...}" location="fastboot.vdi" format="VDI" type="Readonly" />
-     -         <HardDisk uuid="{...}" location="Root.vhd" format="VHD" type="Readonly"/>
-     +         <HardDisk uuid="{...}" location="fastboot.vdi" format="VDI" type="Normal" />
-     +         <HardDisk uuid="{...}" location="Root.vhd" format="VHD" type="Normal"/>
-     ```
-   - Save the file.
-
-3. **Modify the `.bstk` file:**
-   - Open **`Rvc64.bstk`** (or your instance's `.bstk` file) with a text editor.
-   - Repeat the same change: set `fastboot.vdi` and `Root.vhd` to **`type="Normal"`**.
-   - Save the file.
-
-### Step 4: Install Kitsune Mask
-
-1. Download the **[Kitsune Mask](https://github.com/Scratch2033Alt/KitsuneMagisk)** APK file.
-
-2. Launch the target instance from the BlueStacks/MSI Multi-Instance Manager and install the APK.
-
-3. Open the Kitsune Mask application.
-
-4. **Root using Kitsune Mask:**
-   - In the app, select the **Install** option.
-   - Tap **Next**.
-   - Select the **Direct Install to /system** option.
-
-   > **Note:** If this option is missing, completely close and reopen the Kitsune Mask app inside the emulator. This usually resolves the issue.
-
-5. Let the installation complete, then **close the BlueStacks emulator completely**.
-
-6. **Revert Configuration Changes:**
-   - Open **`bluestacks.conf`** again (from Step 2).
-   - Change **`bst.instance.Rvc64.enable_root_access="1"`** back to **`"0"`**.
-   - **Crucially**, also ensure **`bst.feature.rooting="1"`** is changed back to **`"0"`**.
-   - Save the file. You must leave the R/W changes from Step 3 as `type="Normal"`.
-
-7. **Done!** Launch the instance. Kitsune Mask should be installed, and root access will work.
+> [!IMPORTANT]
+> **Why revert the flags?** BlueStacks' *own* built-in `su` and Kitsune's `su` can't both be active — if both are, Magisk reports **"a `su` binary not from Magisk has been detected"** (Abnormal State) and modules won't run. Turning `enable_root_access` back to `0` removes BlueStacks' `su` so Kitsune's is the only one. (In the [app](#method-a-bluestacks-root-gui-recommended), "Toggle Root OFF" does the same thing.)
 
 </details>
+
+---
+
+## Stop Auto-Updates (do this)
+
+BlueStacks will silently update itself and undo your root — re-locking the integrity check (patched installs) or upgrading you off `5.22.130.1019` (manual installs). Kill both update paths in an **Administrator** terminal:
+
+```powershell
+sc.exe stop BstHdUpdaterSvc
+sc.exe config BstHdUpdaterSvc start= disabled
+schtasks /Change /TN "BlueStacksHelper_nxt" /DISABLE
+```
+
+> [!WARNING]
+> **Disable both, and don't panic if the service is missing.** On some builds `BstHdUpdaterSvc` isn't installed — the `sc.exe` lines will say *"service does not exist,"* which is fine. The scheduled task **`BlueStacksHelper_nxt`** is the vector that's always present and can update independently, so it's the important one. Setting `bst.auto_update="0"` in `bluestacks.conf` does **not** work — it is silently ignored.
+
+---
+
+## Magisk Modules & Hiding (Advanced)
+
+Getting *app root* is the easy part. Getting a full **Magisk/Kitsune stack** — Zygisk, Play Integrity Fix, LSPosed, DenyList hiding — is much harder on an emulator, and a lot of standard advice fails on BlueStacks. Here's what actually works, learned the hard way on **5.22.232.1002 / Android 13**.
+
+> [!WARNING]
+> **Set expectations:** **STRONG** Play Integrity is unreachable on *any* emulator (it needs a hardware-backed key BlueStacks doesn't have). **BASIC**/**DEVICE** can pass with a well-tuned Play Integrity Fix. General root-hiding (DenyList) works; hardware attestation does not.
+
+### 1. Zygisk: use ReZygisk, not Zygisk Next
+
+BlueStacks installs Magisk in **System Mode** (no boot ramdisk), and its custom kernel blocks the usual Zygisk injection.
+
+- **Zygisk Next fails here** — its daemon starts but the kernel denies every injection (`permission denied … NewInitProcess`), so `libzygisk` never loads into zygote and no Zygisk module works.
+- **[ReZygisk](https://github.com/PerformanC/ReZygisk) works** — its **ptrace-based** injector gets past the kernel block. Verified: `libzygisk.so` maps into both zygotes, `zygisk-ptrace64` runs, no denials.
+- **Magisk's built-in Zygisk** stays **off** (ReZygisk replaces it).
+
+**Install ReZygisk, reboot, done.** It's the base everything else sits on.
+
+### 2. "Module suspended because Zygisk is not enabled" — ignore it
+
+With ReZygisk, Magisk's app shows *"Zygisk: No"* and labels modules (like Play Integrity Fix) **"suspended because Zygisk is not enabled."** This is a **known cosmetic bug, not a real failure** — the modules still load and run via ReZygisk. It happens because Magisk's *own* Zygisk flag is off while ReZygisk does the real work. Confirmed by the ReZygisk maintainers ([ReZygisk #45](https://github.com/PerformanC/ReZygisk/issues/45)).
+
+> [!WARNING]
+> Do **not** "fix" the label by enabling Magisk's built-in Zygisk — that can conflict with ReZygisk and bootloop the instance. Verify functionality with a checker app, not the label.
+
+### 3. LSPosed hangs the boot — add it last (or not at all)
+
+On this instance, **LSPosed was the module that hung the boot** right before the home screen (heavy `system_server` hooking + a first-boot `dex2oat` recompile that crawls on a low-FPS emulator). ReZygisk and Play Integrity Fix booted fine on their own. If you want LSPosed, **install it last**, expect a very slow first boot, and be ready to remove it if it hangs.
+
+### 4. Play Integrity Fix: loading ≠ passing
+
+If BASIC still fails after PIF is installed:
+- **Force-stop and clear data on Google Play Services**, then re-check — GMS caches its real identity and must re-read the spoof.
+- PIF's bundled device fingerprint may be **stale/banned** (Google bans them constantly) — grab a fresh `pif.json`.
+- PIF ships ARM libs; on x86 BlueStacks whether it injects into GMS depends on ARM translation. Verify with a **Play Integrity checker** app, not by reading props.
+
+### Recommended order
+
+**ReZygisk → reboot → verify Zygisk injects → Play Integrity Fix → reboot → (optional) LSPosed last.** Back up / clone the instance after PIF and before LSPosed.
+
+### Installing modules from your PC — the "Invalid Uri" trap
+
+Picking a module zip through BlueStacks' **Windows Picker** fails with **`Copying zip to temp directory / Invalid Uri`** — Magisk can't open a Windows-side file reference. Instead, get the zip into **Android's own storage** first (drag-drop it onto the window → it lands in Android's Downloads, or push it with adb), then pick it from internal storage. Or skip the picker entirely and install over adb:
+
+```powershell
+adb connect 127.0.0.1:<port>        # BlueStacks ADB port (Settings - Advanced); it changes per reboot
+adb push module.zip /data/local/tmp/
+adb shell su -c 'magisk --install-module /data/local/tmp/module.zip'
+```
+
+---
+
+## Advanced: rooting the latest by hand (no app)
+
+You *can* root a current (`5.22.130.1020`+) build without the app, but it means binary-patching the integrity check out of `HD-Player.exe` yourself — the exact thing [BlueStacks Root GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) automates.
+
+The patch: inside `HD-Player.exe`, the function `_isDiskVerificationRequired()` is forced to return 0 (`xor eax,eax; ret`, bytes `31 C0 C3`), which disables the *"illegally tampered"* shutdown. The catch is **locating** it — it's found by a byte-signature near the `unlock_player.bin` string, and the file offset differs per build, so there's no single universal offset to hand you. The reference implementation (signatures, exact bytes, and the `HD-MultiInstanceManager.exe` reset patch) is open source in **[integrity_patch.py](https://github.com/RobThePCGuy/BlueStacks-Root-GUI/blob/master/integrity_patch.py)** and **[root_persistence.py](https://github.com/RobThePCGuy/BlueStacks-Root-GUI/blob/master/root_persistence.py)**.
+
+> [!NOTE]
+> For all but the most determined hex-editors, the app is the practical way to do this on the latest build — it finds the signature across builds, backs up the original, and is reversible. This section exists for transparency, not because hand-patching is recommended.
+
+---
 
 <details>
 <summary><h2>Troubleshooting</h2></summary>
 
-### Getting "Android system doesn't meet security" popup?
+### "Android system doesn't meet security" / instance shuts down
 
-**You're not alone!** This started happening with BlueStacks version 5.22 (released October 2025).
+BlueStacks 5.22 (Oct 2025) added a disk-integrity check that rejects a modified `/system` on boot. **Two fixes:**
+- **Root the current build** with [BlueStacks Root GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) (patches the check out), **or**
+- **Use the [manual downgrade](#method-b-manual-notepad-only-no-app)** to `5.22.130.1019` (the last build without the check), then [Stop Auto-Updates](#stop-auto-updates-do-this).
 
-#### What's Happening?
+### "A `su` binary not from Magisk has been detected" (Abnormal State)
 
-When you enable root access OR read/write permissions in BlueStacks 5.22+:
-- Shows security warning: *"Android system doesn't meet security and will be shutdown"*
+BlueStacks' own `su` is competing with Magisk's. Remove BlueStacks' `su`: turn root **off** (app: Toggle Root OFF; manual: set `enable_root_access` and `bst.feature.rooting` back to `0`), keep R/W on, reboot. Magisk becomes the only `su`.
 
-**Root Cause:** Google replaced SafetyNet with Play Integrity API in January 2025. BlueStacks 5.22 now actively checks for modifications and blocks startup.
+### Kitsune install fails / "Direct Install to /system" missing
 
-#### How to Fix It
+Almost always the Step 3 R/W edit didn't take, or BlueStacks wasn't fully closed when you edited. Confirm `fastboot.vdi` and `Root.vhd` are `type="Normal"` in **both** `.bstk.in` and `.bstk`. Also try fully closing and reopening the Kitsune app inside the emulator.
 
-<details>
-<summary><b>Downgrade to BlueStacks 5.22.130.1019</b></summary>
+### Modules show "suspended because Zygisk is not enabled"
 
-1. **Backup Your Data**
-   - Export any important app data/saves from BlueStacks
+Cosmetic with ReZygisk — see [Magisk Modules & Hiding](#magisk-modules--hiding-advanced). The modules still work.
 
-2. **Completely Uninstall BlueStacks**
-   - Download [BSTCleaner](https://support.bluestacks.com/hc/en-us/articles/360057724751) from official BlueStacks support
-   - Run it to completely remove all BlueStacks files
+### Module flash fails with "Invalid Uri"
 
-3. **Install BlueStacks 5.22.130.1019**
-   - Download from [5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)
-   - Install normally
+You picked the zip via the Windows Picker. Get it into Android storage first, or install over adb — see the [Invalid Uri trap](#installing-modules-from-your-pc--the-invalid-uri-trap).
 
-4. **Apply This Rooting Guide**
-   - Follow the normal steps in this README
-   - Everything should work as documented!
+### Instance hangs before the home screen
 
-Use [BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) to quickly toggle root between instances.
+A module (most likely **LSPosed**) is stalling boot. Remove/disable the offending module. On the app you can also fall back to a clean instance.
 
-</details>
+### "Permission denied" saving `bluestacks.conf`
 
-#### Version Compatibility
-
-| BlueStacks Version | Root Working? | Notes |
-|-------------------|---------------|-------|
-| 5.20.x | Yes | Fully compatible |
-| 5.22.130.1019 | Yes | Last confirmed working version |
-| 5.22.130.1020+ | No | Play Integrity enforcement (Oct 2025) |
-
-@AndnixSH has informed the issue tracker that:
-"After testing various versions, I found out that 5.22.130.1019 is the last working version without disk integrity check.
-[5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)"
-
-**Background:** See [Issue #11](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11) for discussion and community findings.
-
----
-
-### Kitsune Mask Installation Issues
-
-- **Problem:** Kitsune Mask fails to install, or the "Direct Install to /system" option is missing.
-- **Solution:** This almost always means the R/W changes in Step 3 were not done correctly, or BlueStacks was not fully closed before making the changes. Double-check that `fastboot.vdi` and `Root.vhd` are set to `type="Normal"` in both the `.bstk.in` and `.bstk` files.
-
-### "Permission Denied" when saving files
-
-- **Problem:** You cannot save `bluestacks.conf` or other files.
-- **Solution:** You must open your text editor (like Notepad) **as an administrator**. Right-click the editor's icon and select "Run as administrator" before opening the file.
+Open Notepad **as administrator** before opening the file.
 
 </details>
 
 <details>
-<summary><h2>FAQ - Frequently Asked Questions</h2></summary>
+<summary><h2>Version Compatibility</h2></summary>
 
-**Q: Which version of BlueStacks should I install?**
+| BlueStacks Version | Rootable? | How |
+|---|---|---|
+| 5.20.x – 5.21.x | Yes | Classic flags; no integrity check |
+| ≤ 5.22.130.1019 | Yes | Manual (Notepad) **or** app — last build with **no** integrity check |
+| 5.22.130.1020+ (incl. latest 5.22.232.x) | Yes | **[App](#method-a-bluestacks-root-gui-recommended)** patches the integrity check out (or [hand-patch](#advanced-rooting-the-latest-by-hand-no-app)) |
 
-**A:** Install **[BlueStacks 5.22.130.1019](https://ak-build.bluestacks.com/public/app-player/windows/nxt/5.22.130.1019/03f0020b47ac3b5affd5d7ea53661c44/FullInstaller/x64/BlueStacksFullInstaller_5.22.130.1019_amd64_native.exe)** — it is the last version compatible with rooting. Versions `5.22.130.1020` and newer block rooting due to Play Integrity enforcement.
+Per [@AndnixSH](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11): *"5.22.130.1019 is the last working version without disk integrity check."* Everything above it needs the check patched — which the app does. See [Issue #11](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/issues/11) for the full history.
 
-**Q: I can't find the `C:\ProgramData` folder!**
+</details>
 
-**A:** This folder is hidden by default in Windows. In File Explorer, go to the **View** tab and check the box for **Hidden items**.
+<details>
+<summary><h2>FAQ</h2></summary>
 
-**Q: This all seems terribly difficult; isn't there a better way?**
+**Q: Do I have to downgrade to root now?**
+**A:** No. That advice is outdated. [BlueStacks Root GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI) roots the latest build. Downgrading to `5.22.130.1019` is only needed for the fully-manual, no-app method.
 
-**A:** Yes! The manual steps are here for transparency, but for a much easier process, use my **[BlueStacks-Root-GUI](https://github.com/RobThePCGuy/BlueStacks-Root-GUI)** tool. It handles all the configuration file editing with simple buttons.
+**Q: My root stopped working after a while — why?**
+**A:** BlueStacks auto-updated and undid it. Do [Stop Auto-Updates](#stop-auto-updates-do-this). On a patched install you can also just re-run the engine patch.
 
-**Q: Can I reverse this rooting process?**
+**Q: I can't find `C:\ProgramData`.**
+**A:** It's hidden. In File Explorer → **View** → check **Hidden items**.
 
-**A:** Yes. In the GUI, simply toggle Root off. Manually, change the values in `bluestacks.conf` back to `"0"` and uninstall the Kitsune Mask app from the instance.
+**Q: Which Kitsune Mask build?**
+**A:** **v26.4 stable** from the [KitsuneMagisk archive](https://github.com/Scratch2033Alt/KitsuneMagisk). Newer canary builds can throw the "su not from Magisk" error.
 
-**Q: Is SELinux enabled or disabled after rooting with this method?**
+**Q: Can I undo the root?**
+**A:** Yes. App: Toggle Root off. Manual: set the two `bluestacks.conf` values back to `0` and uninstall the Kitsune Mask app.
 
-**A:** SELinux is **Disabled** by default on the BlueStacks 5 guest, and this rooting method does **not** change it — the steps here only edit `bluestacks.conf` and flip disk read-only flags; they touch no SELinux policy.
-
-To check inside the instance (use a terminal app in the emulator, or `adb shell`):
-
+**Q: Is SELinux enforcing after rooting?**
+**A:** No — it's **Disabled** on the BlueStacks 5 guest by default, and neither method changes that (they only edit `bluestacks.conf` and flip disk flags). Verify in a terminal/`adb shell`:
 ```
 getenforce            # expect: Disabled
-getprop ro.boot.selinux   # also informative
+getprop ro.boot.selinux
 ```
-
-This was verified on BlueStacks `5.22.x` with Android 9, 11, and 13 instances (all reported `Disabled`), but it can vary by BlueStacks build and Android instance version, so confirm on your own setup.
-
-If you specifically need SELinux **Enforcing** (for example, a game or anti-cheat that refuses to run under permissive/disabled SELinux), this method won't provide it — that would require an extra `magiskpolicy` step beyond this guide.
+Confirmed on 5.22.x Android 9/11/13 (all `Disabled`), but it can vary — check your own. If you need SELinux **Enforcing** (some anti-cheat), that requires an extra `magiskpolicy` step beyond this guide.
 
 </details>
 
 ---
 
-**If this guide has helped you, please consider leaving a star on the repository!** It helps others discover this guide and motivates further improvements.
-
-[GitHub Repository](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)
+**If this guide helped, a star on the repo helps others find it.** · [GitHub Repository](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask)
