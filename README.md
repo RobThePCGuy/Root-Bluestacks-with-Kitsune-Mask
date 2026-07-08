@@ -51,7 +51,7 @@ This roots by editing two config files and installing Kitsune Mask into `/system
 ### Prerequisites
 
 - **Administrator rights** — you'll edit files under `C:\ProgramData`.
-- **Kitsune Mask APK** — download from the [KitsuneMagisk archive](https://github.com/Scratch2033Alt/KitsuneMagisk) (**v26.4 stable** is the known-good build; the original repo is gone).
+- **Kitsune Mask APK** — download the pinned, hash-verified copy from **[this repo's Releases](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/releases/tag/magisk-delta-kitsune-27.001)**. It's the exact `27.001` build confirmed working on BlueStacks this guide was written against, with a published **SHA-256** so you can verify you got the untampered file. (The original Kitsune repo is abandoned and third-party mirrors 404 or wrap the download in ads — this avoids both.) Kitsune Mask is a GPL-3.0 fork of Magisk Delta ([upstream: HuskyDG](https://github.com/HuskyDG/magisk-files)).
 - **BlueStacks 5.22.130.1019** (or older) or MSI App Player — a fresh install gives the most consistent results.
 
 ### Instance naming
@@ -249,7 +249,7 @@ Per [@AndnixSH](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask
 **A:** It's hidden. In File Explorer → **View** → check **Hidden items**.
 
 **Q: Which Kitsune Mask build?**
-**A:** **v26.4 stable** from the [KitsuneMagisk archive](https://github.com/Scratch2033Alt/KitsuneMagisk). Newer canary builds can throw the "su not from Magisk" error.
+**A:** The pinned `27.001` copy from **[Releases](https://github.com/RobThePCGuy/Root-Bluestacks-with-Kitsune-Mask/releases/tag/magisk-delta-kitsune-27.001)** (SHA-256 published so you can verify it). Older builds like `26.4` also work. If you hit *"a `su` binary not from Magisk,"* that is **not** caused by the build — it's BlueStacks' own competing `su`; see the [Abnormal State fix](#a-su-binary-not-from-magisk-has-been-detected-abnormal-state).
 
 **Q: Can I undo the root?**
 **A:** Yes. App: Toggle Root off. Manual: set the two `bluestacks.conf` values back to `0` and uninstall the Kitsune Mask app.
