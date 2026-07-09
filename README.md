@@ -150,9 +150,9 @@ With ReZygisk, Magisk's app shows *"Zygisk: No"* and labels modules (like Play I
 > [!WARNING]
 > Do **not** "fix" the label by enabling Magisk's built-in Zygisk — that can conflict with ReZygisk and bootloop the instance. Verify functionality with a checker app, not the label.
 
-### 3. LSPosed hangs the boot — add it last (or not at all)
+### 3. LSPosed: install it, then close and reopen the instance
 
-On this instance, **LSPosed was the module that hung the boot** right before the home screen (heavy `system_server` hooking + a first-boot `dex2oat` recompile that crawls on a low-FPS emulator). ReZygisk and Play Integrity Fix booted fine on their own. If you want LSPosed, **install it last**, expect a very slow first boot, and be ready to remove it if it hangs.
+LSPosed runs fine on top of ReZygisk — verified **Activated** (1.9.2, Zygisk) on 5.22.232.1002 / Android 13. After installing any module, **fully close the instance and reopen it** to activate it. The first boot after adding LSPosed is a little slower while Android recompiles (`dex2oat`), so give it a minute.
 
 ### 4. Play Integrity Fix: loading ≠ passing
 
@@ -163,7 +163,7 @@ If BASIC still fails after PIF is installed:
 
 ### Recommended order
 
-**ReZygisk → reboot → verify Zygisk injects → Play Integrity Fix → reboot → (optional) LSPosed last.** Back up / clone the instance after PIF and before LSPosed.
+**ReZygisk → close & reopen → verify Zygisk injects → Play Integrity Fix → close & reopen → LSPosed → close & reopen.** Back up / clone the instance once you have a known-good stack.
 
 ### Installing modules from your PC — the "Invalid Uri" trap
 
@@ -215,7 +215,7 @@ You picked the zip via the Windows Picker. Get it into Android storage first, or
 
 ### Instance hangs before the home screen
 
-A module (most likely **LSPosed**) is stalling boot. Remove/disable the offending module. On the app you can also fall back to a clean instance.
+A module is stalling boot. Remove/disable the offending module, or fall back to a clean instance.
 
 ### "Permission denied" saving `bluestacks.conf`
 
